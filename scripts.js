@@ -45,11 +45,23 @@ var _ = {
     return check;
   },
 
-  shuffle: function(array) {
+  // shuffle: function(array) {
+  //   var output = [];
+  //   var shuffler = Math.ceil(Math.random()*array.length);
+  //   for (var i = shuffler; i < array.length; i++) {
+  //     output.push(array[i]);
+  //   }
+  //   return output;
+  // },
+
+  sample: function(array, n) {
     var output = [];
-    var shuffler = Math.ceil(Math.random()*array.length);
-    for (var i = shuffler; i < array.length; i++) {
-      output.push(array[i]);
+    if (n === undefined) {
+      n = 1;
+    }
+    for (var i = 0; i < n; i++) {
+      var randomNum = Math.floor(Math.random() * n);
+      output.push(array[randomNum]);
     }
     return output;
   },
@@ -101,6 +113,6 @@ var _ = {
 
 
 
-console.log(_.difference([1, 2, 3, 4, 5,9], [5, 2, 10,6]));
+console.log(_.sample([1, 2, 3, 4, 5, 6]));
 
 
