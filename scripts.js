@@ -45,14 +45,17 @@ var _ = {
     return check;
   },
 
-  // shuffle: function(array) {
-  //   var output = [];
-  //   var shuffler = Math.ceil(Math.random()*array.length);
-  //   for (var i = shuffler; i < array.length; i++) {
-  //     output.push(array[i]);
-  //   }
-  //   return output;
-  // },
+  shuffle: function(array) {
+    var i = array.length, t, x;
+    while (i) {
+      x = Math.floor(Math.random() * i);
+      i--;
+      t = array[i];
+      array[i] = array[x];
+      array[x] = t;  
+    }
+    return array;
+  },
 
   sample: function(array, n) {
     var output = [];
@@ -61,7 +64,7 @@ var _ = {
     }
     for (var i = 0; i < n; i++) {
       var randomNum = Math.floor(Math.random() * n);
-      output.push(array[randomNum]);
+      output.push(array.splice(randomNum, 1)[0]);
     }
     return output;
   },
@@ -113,6 +116,31 @@ var _ = {
 
 
 
-console.log(_.sample([1, 2, 3, 4, 5, 6]));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
